@@ -1,5 +1,27 @@
 /* styles.css */
 
+/* light mode */
+:root {
+    --fg-color: #eceff4;
+    --bar-color: #2e3440;
+    --el-color: #434c5e;
+    --bg-color: #d8dee9;
+    --accent-color: #5e81ac;
+    --yes-color: #a3be8c;
+    --shadow-color: #01010180;
+}
+
+/* dark mode */
+:root {
+    --dark-fg-color: #a1c8bb;
+    --dark-bar-color: #121212;
+    --dark-el-color: #121212;
+    --dark-bg-color: #282828;
+    --accent-color: #5e81ac;
+    --dark-yes-color: #19846c;
+    --dark-shadow-color: #01010180;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
