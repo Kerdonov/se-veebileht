@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eesti Rahvarõivad</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Avaleht</a></li>
+                <li><a href="subpage1.html">Alamleht 1</a></li>
+                <li><a href="subpage2.html">Alamleht 2</a></li>
+            </ul>
+        </nav>
+        <h1>Eesti Rahvarõivad</h1>
+    </header>
+    <main>
+        <section id="introduction">
+            <h2>Mis on Rahvarõivad?</h2>
+            <p>Eesti rahvarõivad ehk rahvariided on koondnimetus ajaloolistele Eesti talupojarõivastele, mida kanti igapäevaselt ja pidulikel üritustel. Rahvarõivad peegeldavad piirkondlikke, soolisi ja sotsiaalseid erinevusi ning nende kandmine muutus populaarseks eriti rahvuslikel üritustel, nagu laulupidudel, et tugevdada rahvuslikku identiteeti.</p>
+        </section>
+
+        <section id="clothing-types">
+            <h2>Rõivaste Tüübid</h2>
+            <ul>
+                <li><strong>Pidulikud rõivad:</strong> Kanti ainult erilistel puhkudel ning need pärandati põlvest põlve.</li>
+                <li><strong>Käimise rõivad:</strong> Kasutati vähem pidulikel käikudel.</li>
+                <li><strong>Igapäevased töörõivad:</strong> Valmistatud lihtsamast materjalist ning olid kaunistusteta.</li>
+            </ul>
+        </section>
+
+        <section id="regional-differences">
+            <h2>Piirkondlikud Erinevused</h2>
+            <p>Eesti rahvarõivad varieerusid piirkonniti. Näiteks Lõuna-Eestis säilisid traditsioonilisemad vormid, samas kui Põhja-Eestis mõjutati rohkem moodidest Tallinna ja Peterburi lähedusest. Lääne-Eestis ja saartel olid samuti oma eripärad, sageli kajastades läänemereäärsete rahvaste mõjusid.</p>
+        </section>
+
+        <section id="symbolism">
+            <h2>Rahvarõivaste Sümbolism</h2>
+            <p>Rahvarõivad ei olnud ainult riietus, vaid neil oli ka sümboolne tähendus. Need võisid viidata kandja sotsiaalsele seisundile, perekonnaseisule või vanusele. Usuti, et rõivastel oli ka maagiline kaitsevõime, eriti vöödel ja kinnastel.</p>
+        </section>
+    </main>
+    <footer>
+        <p>Allikas: <a href="https://et.wikipedia.org/wiki/Rahvar%C3%B5ivad">Rahvarõivad - Vikipeedia</a>, <a href="https://et.wikipedia.org/wiki/Eesti_rahvar%C3%B5ivad">Eesti rahvarõivad - Vikipeedia</a></p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('nav ul.navbar li a');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetPage = event.target.getAttribute('href');
+                    window.location.href = targetPage;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
