@@ -1,9 +1,8 @@
-/*
 /* styles.css */
-
+/*problem with the footer for some reason*/
 /* light mode */
 :root {
-    --fg-color: #01010180; /*#eceff4*/
+    --fg-color: #01010180; /*#eceff4 was the value before but it was hard to read*/
     --bar-color: #2e3440;
     --el-color: #434c5e;
     --bg-color: #d8dee9;
@@ -32,7 +31,7 @@ body {
     color: var(--fg-color);
 
 }
-.dark-theme {
+.dark-theme { /*new class for the script to work, NEED TO BE CLEANED UP*/
     --fg-color: #a1c8bb;
     --bar-color: #121212;
     --el-color: #121212;
@@ -50,7 +49,7 @@ body {
 }
 
 header {
-    background-color: #2e3440;
+    background-color: var(--bar-color);
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -62,7 +61,7 @@ nav ul.navbar {
     margin: 0;
     display: flex;
     justify-content: center;
-    background-color: #2e3440;
+    background-color: var(--bar-color);
 }
 
 nav ul.navbar li {
@@ -92,7 +91,7 @@ h1, h2 {
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #2e3440;
+    background-color: var(--bar-color);
     color: #fff;
     position: fixed;
     bottom: 0;
@@ -104,7 +103,7 @@ a {
 }
 
 a:hover {
-    color: #a3be8c;
+    color: var(--yes-color);
 }
 
 /* Button Styling */
@@ -120,7 +119,7 @@ a:hover {
 /* Hover effect with circular border */
 #theme-toggle:hover {
     transform: scale(1.1);
-    background-color: #5e81ac; /* Static color for visibility */
+    background-color: #5e81ac;
 }
 
 /* Ensure the SVG inside the button also transitions with the button */
