@@ -1,130 +1,208 @@
-/* styles.css */
-/*problem with the footer for some reason*/
-/* light mode */
-:root {
-    --fg-color: #01010180; /*#eceff4 was the value before but it was hard to read*/
-    --bar-color: #2e3440;
-    --el-color: #434c5e;
-    --bg-color: #d8dee9;
-    --accent-color: #5e81ac;
-    --yes-color: #a3be8c;
-    --shadow-color: #01010180;
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* dark mode */
+/* Theme Tokens */
 :root {
-    --dark-fg-color: #a1c8bb;
-    --dark-bar-color: #121212;
-    --dark-el-color: #121212;
-    --dark-bg-color: #282828;
-    --accent-color: #5e81ac;
-    --dark-yes-color: #19846c;
-    --dark-shadow-color: #01010180;
+  /* Base Colors */
+  --color-primary: #5e81ac;
+  --color-success: #a3be8c;
+  --color-shadow: rgba(1, 1, 1, 0.5);
+
+  /* Light Theme Colors */
+  --light-fg: #2e3440;
+  --light-bg: #d8dee9;
+  --light-surface: #e5e9f0;
+  --light-navbar: #2e3440;
+
+  /* Dark Theme Colors */
+  --dark-fg: #a1c8bb;
+  --dark-bg: #282828;
+  --dark-surface: #121212;
+  --dark-navbar: #121212;
+
+  /* Theme Color Applications */
+  --color-fg: var(--light-fg);
+  --color-bg: var(--light-bg);
+  --color-surface: var(--light-surface);
+  --color-navbar: var(--light-navbar);
+
+  /* Typography */
+  --font-size-base: clamp(1rem, 1vw + 0.75rem, 1.125rem);
+
+  /* Transitions */
+  --transition-standard: 200ms ease-in-out;
 }
 
+[data-theme="dark"] {
+  --color-fg: var(--dark-fg);
+  --color-bg: var(--dark-bg);
+  --color-surface: var(--dark-surface);
+  --color-navbar: var(--dark-navbar);
+}
+
+/* Base Styles */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-color);
-    color: var(--fg-color);
-
-}
-.dark-theme { /*new class for the script to work, NEED TO BE CLEANED UP*/
-    --fg-color: #a1c8bb;
-    --bar-color: #121212;
-    --el-color: #121212;
-    --bg-color: #282828;
-    --yes-color: #19846c;
-    --shadow-color: #01010180;
-}
-.light-theme {
-    --fg-color: #01010180;
-    --bar-color: #2e3440;
-    --el-color: #434c5e;
-    --bg-color: #d8dee9;
-    --yes-color: #a3be8c;
-    --shadow-color: #01010180;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  transition: background-color var(--transition-standard),
+    color var(--transition-standard);
 }
 
+/* Header */
 header {
-    background-color: var(--bar-color);
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+  background-color: var(--color-navbar);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
 }
 
+/* Navigation */
 nav ul.navbar {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    background-color: var(--bar-color);
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-navbar);
+  transition: background-color var(--transition-standard);
 }
 
 nav ul.navbar li {
-    margin: 0 15px;
+  margin: 0 15px;
 }
 
 nav ul.navbar li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity var(--transition-standard);
 }
 
 nav ul.navbar li a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
+/* Main Content */
 main {
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
 }
 
-h1, h2 {
-    color: #5e81ac;
+/* Typography */
+h1,
+h2 {
+  color: var(--color-primary);
+  line-height: 1.2;
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: var(--bar-color);
-    color: #fff;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+h1 {
+  font-size: clamp(2rem, 4vw + 1rem, 3rem);
+}
+h2 {
+  font-size: clamp(1.5rem, 3vw + 1rem, 2rem);
 }
 
+/* Links */
 a {
-    color: #5e81ac;
+  color: var(--color-primary);
+  transition: color var(--transition-standard);
 }
 
 a:hover {
-    color: var(--yes-color);
+  color: var(--color-success);
 }
 
-/* Button Styling */
+/* Theme Toggle Button */
 #theme-toggle {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    border-radius: 50%; /* Make it circular */
-    padding: 8px; /* Add padding to center the icon within the circular border */
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition-standard);
+  border-radius: 50%;
+  padding: 8px;
+  display: grid;
+  place-items: center;
 }
 
-/* Hover effect with circular border */
 #theme-toggle:hover {
-    transform: scale(1.1);
-    background-color: #5e81ac;
+  transform: scale(1.1);
 }
 
-/* Ensure the SVG inside the button also transitions with the button */
+#theme-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 #theme-toggle img {
-    width: 32px;
-    height: 32px;
-    transition: transform 0.3s ease;
+  width: 32px;
+  height: 32px;
+  transition: all var(--transition-standard);
+  /* Light mode: white with slight transparency */
+  filter: invert(1) opacity(0.85);
+}
+
+/* Dark mode: fully white */
+[data-theme="dark"] #theme-toggle img {
+  filter: invert(1) opacity(1);
+}
+
+/* Hover effects for both modes */
+#theme-toggle:hover img {
+  filter: invert(1) opacity(1) brightness(1.1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--color-navbar);
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  transition: background-color var(--transition-standard);
+}
+
+/* Section spacing */
+.section {
+  margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    padding: 15px;
+  }
+
+  nav ul.navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  nav ul.navbar li {
+    margin: 5px 0;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
 }
