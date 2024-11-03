@@ -6,7 +6,7 @@
     <title>Eesti Rahvarõivad</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body>
+  <body class='light-theme'>
     <header>
       <nav>
         <ul class="navbar">
@@ -16,6 +16,9 @@
         </ul>
       </nav>
       <h1>Eesti Rahvarõivad</h1>
+      <button id="theme-toggle" aria-label="Toggle Light/Dark Mode">
+        <img src="icons/night-day.svg" alt="Toggle Theme">
+        </button>
     </header>
     <main>
       <section id="introduction">
@@ -77,6 +80,7 @@
           >Eesti rahvarõivad - Vikipeedia</a
         >
       </p>
+      <script src="js/theme-button.js"></script>
     </footer>
     <script src="js/main.js" defer></script>
   </body>

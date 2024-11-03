@@ -1,8 +1,8 @@
 /* styles.css */
-
+/*problem with the footer for some reason*/
 /* light mode */
 :root {
-    --fg-color: #eceff4;
+    --fg-color: #01010180; /*#eceff4 was the value before but it was hard to read*/
     --bar-color: #2e3440;
     --el-color: #434c5e;
     --bg-color: #d8dee9;
@@ -27,12 +27,29 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+
+}
+.dark-theme { /*new class for the script to work, NEED TO BE CLEANED UP*/
+    --fg-color: #a1c8bb;
+    --bar-color: #121212;
+    --el-color: #121212;
+    --bg-color: #282828;
+    --yes-color: #19846c;
+    --shadow-color: #01010180;
+}
+.light-theme {
+    --fg-color: #01010180;
+    --bar-color: #2e3440;
+    --el-color: #434c5e;
+    --bg-color: #d8dee9;
+    --yes-color: #a3be8c;
+    --shadow-color: #01010180;
 }
 
 header {
-    background-color: #0077cc;
+    background-color: var(--bar-color);
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -44,7 +61,7 @@ nav ul.navbar {
     margin: 0;
     display: flex;
     justify-content: center;
-    background-color: #005fa3;
+    background-color: var(--bar-color);
 }
 
 nav ul.navbar li {
@@ -68,13 +85,13 @@ main {
 }
 
 h1, h2 {
-    color: #005fa3;
+    color: #5e81ac;
 }
 
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #0077cc;
+    background-color: var(--bar-color);
     color: #fff;
     position: fixed;
     bottom: 0;
@@ -82,9 +99,32 @@ footer {
 }
 
 a {
-    color: #0077cc;
+    color: #5e81ac;
 }
 
 a:hover {
-    color: #005fa3;
+    color: var(--yes-color);
+}
+
+/* Button Styling */
+#theme-toggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border-radius: 50%; /* Make it circular */
+    padding: 8px; /* Add padding to center the icon within the circular border */
+}
+
+/* Hover effect with circular border */
+#theme-toggle:hover {
+    transform: scale(1.1);
+    background-color: #5e81ac;
+}
+
+/* Ensure the SVG inside the button also transitions with the button */
+#theme-toggle img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
 }
