@@ -206,3 +206,15 @@ footer {
     transition: none !important;
   }
 }
+
+main img {
+  max-width: 100%;
+  height: auto;
+  margin: 25px 0 50px 0;
+  border-radius: 10px;
+  box-shadow: var(--color-shadow) 5px -5px 30px;
+}
+
+section {
+  margin: 15px 0;
+}
